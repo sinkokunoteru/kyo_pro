@@ -1,0 +1,37 @@
+a=input()
+a=a.split()
+a=[int(i) for i in a]
+m=a[1]
+saidai=0
+saishou=0
+result=0
+def judge(a,b,c,d,m):  #料金計算
+    if m<a:
+        money=b
+    else:
+        s=m-a
+        s=s/c
+        money=s*d+b
+    return money
+
+def mx(r,mx):   #最大判定
+    if r>mx or mx==0:
+        mx=r
+    return mx
+
+def me(r,me):   #最小判定
+    if r<=me or me==0:
+        me=r
+    return me
+
+for i in range(a[0]):
+    b=input()
+    b=b.split()
+    b=[int(i) for i in b]
+    result=judge(b[0],b[1],b[2],b[3],m)
+    result=int(result)
+    saidai=mx(result,saidai)
+    saishou=me(result,saishou)
+
+print(saishou)
+print(saidai)
